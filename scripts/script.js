@@ -84,7 +84,20 @@ function setupSections() {
     container.appendChild(clone);
   });
 } // Отрисовка секций конференций
+const setupImageWithContainer = (img) => {
+  const onLoadOrError = () => {
+    img.style.opacity = "1";
+    img.removeEventListener("load", onLoadOrError);
+    img.removeEventListener("error", onLoadOrError);
+  };
 
+  if (img.complete) {
+    onLoadOrError();
+  } else {
+    img.addEventListener("load", onLoadOrError);
+    img.addEventListener("error", onLoadOrError);
+  }
+}; // Функция для настройки прозрачности изображения
 function renderPlayers() {
   const template = document.getElementById("player-template").content;
 
@@ -109,12 +122,16 @@ function renderPlayers() {
       clone.querySelector(".player-text").textContent = player.firstName;
 
       const logo = clone.querySelector(".team-logo");
+      logo.style.opacity = "0";
       logo.src = `${basicLink}team-logos/${player.team}.svg`;
       logo.alt = `${player.team.toUpperCase()} logo`;
+      setupImageWithContainer(logo);
 
-      const shot = clone.querySelector(".headshot");
-      shot.src = `${basicLink}players/${player.firstName.toLowerCase()}-${player.lastName.toLowerCase()}.png`;
-      shot.alt = `${player.firstName} ${player.lastName} headshot`;
+      const head = clone.querySelector(".headshot");
+      head.style.opacity = "0";
+      head.src = `${basicLink}players/${player.firstName.toLowerCase()}-${player.lastName.toLowerCase()}.png`;
+      head.alt = `${player.firstName} ${player.lastName} headshot`;
+      setupImageWithContainer(head);
 
       container.appendChild(clone);
     });
