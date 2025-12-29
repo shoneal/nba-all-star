@@ -34,14 +34,67 @@
       content="https://shoneal.github.io/nba-all-star/images/twitter-image.jpg"
     />
     <link rel="icon" href="./images/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon.png"
+    />
     <link rel="apple-touch-icon" href="./images/apple-touch-icon.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./images/apple-touch-icon.png"
+    />
     <link rel="stylesheet" href="./fonts/fonts.css" />
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
 
   <body>
+    <header>
+      <img
+        class="logo"
+        src="./images/logo.svg"
+        alt="Los Angeles 2026 All Star Voting Logo"
+      />
+      <img
+        class="title"
+        src="./images/title.png"
+        alt="NBA All Star Voting"
+      />
+    </header>
+    <main>
+      <div class="conferences-container">
+        <div class="conference">
+          <h2 class="title"></h2>
+          <div class="cards-container"></div>
+        </div>
+      </div>
+    </main>
+
+    <template id="player-template">
+      <div class="card">
+        <div class="player-data">
+          <div class="card-top">
+            <p class="conference-tag"></p>
+          </div>
+          <div class="team-data">
+            <p></p>
+            <p></p>
+          </div>
+          <div class="player-name">
+            <p></p>
+            <p></p>
+          </div>
+        </div>
+        <div class="player-assets">
+          <img class="team-logo" src="" alt="" />
+          <img class="headshot" width="107" height="76" src="" alt="" />
+        </div>
+        <p class="player-text"></p>
+      </div>
+    </template>
+
     <script src="./scripts/script.js"></script>
   </body>
 </html>
