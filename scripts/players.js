@@ -1,4 +1,4 @@
-const players = {
+export const players = {
   west: [
     {
       firstName: "Nikola",

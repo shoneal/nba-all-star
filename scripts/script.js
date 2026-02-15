@@ -1,7 +1,9 @@
+import { players } from "./players.js";
+
 const basicLink = "https://shoneal.github.io/nba-all-star/images/"; // Главная ссылка
 
 Object.values(players).forEach(
-  (arr) => arr.sort((a, b) => a.lastName.localeCompare(b.lastName)) // Сортировка игроков по фамилии
+  (arr) => arr.sort((a, b) => a.lastName.localeCompare(b.lastName)), // Сортировка игроков по фамилии
 );
 
 function setupSections() {
@@ -36,7 +38,7 @@ function renderPlayers() {
 
   document.querySelectorAll(".cards-container").forEach((container) => {
     const region = Object.keys(players).find((key) =>
-      container.classList.contains(key)
+      container.classList.contains(key),
     );
 
     players[region].forEach((player) => {
